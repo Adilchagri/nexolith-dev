@@ -1,0 +1,11 @@
+﻿<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="16" fill="#071422" />
+  <circle cx="100" cy="100" r="85" fill="#0A1C2E" stroke="#1769FF" stroke-width="2" stroke-opacity="0.3" />
+  <!-- Silhouette & Monogram -->
+  <circle cx="100" cy="75" r="32" fill="#132B45" stroke="#2575FC" stroke-width="2" />
+  <path d="M 45 165 C 45 125, 70 120, 100 120 C 130 120, 155 125, 155 165 Z" fill="#132B45" stroke="#2575FC" stroke-width="2" />
+  <text x="100" y="85" text-anchor="middle" fill="#F5F7FA" font-family="sans-serif" font-size="28" font-weight="bold">A</text>
+  <!-- Tech Accent -->
+  <circle cx="145" cy="55" r="7" fill="#1769FF" />
+  <circle cx="145" cy="55" r="14" fill="none" stroke="#1769FF" stroke-opacity="0.4" />
+</svg>

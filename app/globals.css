@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #050B12;
+    --navy-surface: #081522;
+    --card-surface: #0A1726;
+    --blue-primary: #1769FF;
+    --emerald-primary: #2ECC71;
+    --mint-accent: #5CFFD0;
+    --text-white: #F5F7FA;
+    --text-muted: #8C98A8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #050B12;
+    color: #F5F7FA;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #050B12;
+    color: #F5F7FA;
+    min-height: 100vh;
+    overflow-x: hidden;
+    selection-background-color: #1769FF;
+    selection-color: #FFFFFF;
+  }
+
+  ::selection {
+    background-color: rgba(23, 105, 255, 0.4);
+    color: #FFFFFF;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050B12;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(46, 204, 113, 0.5);
+  }
+
+  /* Accessibility focus outline */
+  *:focus-visible {
+    outline: 2px solid #5CFFD0;
+    outline-offset: 2px;
+  }
+}
+
+/* Background Microgrid & Atmospheric Layers */
+.studio-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.studio-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass & Card Surfaces */
+.glass-panel {
+  background: rgba(8, 21, 34, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(23, 105, 255, 0.3);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Typography Gradient Utilities */
+.gradient-text-blue-emerald {
+  background: linear-gradient(135deg, #F5F7FA 0%, #5CFFD0 60%, #1769FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #5CFFD0 0%, #2ECC71 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #74AAFF 0%, #1769FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
