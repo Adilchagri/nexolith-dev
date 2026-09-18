@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle, Mail, Copy, Check } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/data/translations";
 
@@ -19,6 +19,11 @@ export function ProjectConfigurator() {
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [mailtoUrl, setMailtoUrl] = useState("");
+  const [formattedSummary, setFormattedSummary] = useState("");
+
+  const targetMail = "nexolithdev@gmail.com";
 
   const projectTypes =
     language === "fr"
@@ -62,9 +67,47 @@ export function ProjectConfigurator() {
     }
 
     setStatus("submitting");
+
+    const subjectText = `[NEXOLITH DEV] Projet: ${projectType} - ${name}`;
+    const bodyText = `Bonjour Adil & Amine,
+
+Nouveau projet configuré depuis le portfolio NEXOLITH DEV :
+
+• Nom : ${name}
+• Email de contact : ${email}
+• Type de projet : ${projectType}
+• Services requis : ${serviceNeed}
+
+Description & Objectifs :
+${description || "(Non renseigné)"}
+
+---
+Envoyé depuis le portfolio nexolith.dev`;
+
+    const encodedSubject = encodeURIComponent(subjectText);
+    const encodedBody = encodeURIComponent(bodyText);
+    const generatedMailto = `mailto:${targetMail}?subject=${encodedSubject}&body=${encodedBody}`;
+
+    setMailtoUrl(generatedMailto);
+    setFormattedSummary(bodyText);
+
+    // Trigger direct mail client transmission
+    try {
+      window.location.href = generatedMailto;
+    } catch {
+      // Fallback handled gracefully in UI
+    }
+
     setTimeout(() => {
       setStatus("success");
-    }, 900);
+    }, 500);
+  };
+
+  const handleCopySummary = () => {
+    if (!formattedSummary) return;
+    navigator.clipboard.writeText(formattedSummary);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   const handleReset = () => {
@@ -72,6 +115,7 @@ export function ProjectConfigurator() {
     setDescription("");
     setName("");
     setEmail("");
+    setCopied(false);
   };
 
   return (
@@ -97,26 +141,66 @@ export function ProjectConfigurator() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="py-12 text-center space-y-6"
+              className="py-8 text-center space-y-6 max-w-lg mx-auto"
             >
               <div className="w-16 h-16 mx-auto rounded-full bg-[#2ECC71]/20 border border-[#2ECC71]/40 flex items-center justify-center text-[#5CFFD0]">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
+
               <div className="space-y-2">
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-white">
                   {t.success_title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#8C98A8] max-w-md mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#8C98A8] leading-relaxed">
                   {t.success_desc}
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={handleReset}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-xs font-mono text-white border border-white/10 transition-all"
-              >
-                ← {language === "fr" ? "Nouvelle configuration" : language === "en" ? "New inquiry" : "إرسال طلب جديد"}
-              </button>
+
+              {/* Action Buttons to ensure delivery */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <a
+                  href={mailtoUrl}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-nexolith-white hover:bg-white text-nexolith-dark font-display font-bold text-xs tracking-wider uppercase transition-all shadow-xl hover:scale-105"
+                >
+                  <Mail className="w-4 h-4 text-nexolith-blue" />
+                  <span>{t.open_mail}</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleCopySummary}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-xs font-mono text-white border border-white/10 transition-all"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-[#2ECC71]" />
+                      <span className="text-[#5CFFD0]">{t.copied}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-[#8C98A8]" />
+                      <span>{t.copy_summary}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="text-xs font-mono text-[#8C98A8] hover:text-white transition-colors"
+                >
+                  ← {language === "fr" ? "Nouvelle configuration" : language === "en" ? "New inquiry" : "إرسال طلب جديد"}
+                </button>
+
+                <a
+                  href={`mailto:${targetMail}`}
+                  className="text-xs font-mono text-[#5CFFD0] hover:underline"
+                >
+                  {targetMail}
+                </a>
+              </div>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">

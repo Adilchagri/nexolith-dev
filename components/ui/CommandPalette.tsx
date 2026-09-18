@@ -11,7 +11,6 @@ import {
   Layers,
   Sparkles,
   Mail,
-  ExternalLink,
   Terminal,
   ArrowRight,
   X,
@@ -73,15 +72,27 @@ export function CommandPalette({
       },
     },
     {
-      id: "lab",
-      title: "Explorer le Lab",
-      subtitle: "Recherche en IA, Computer Vision & Télédétection",
+      id: "process",
+      title: "Notre processus",
+      subtitle: "Méthodologie d'ingénierie et de développement",
       icon: Cpu,
       action: () => {
         onClose();
-        const el = document.getElementById("ai-lab");
+        const el = document.getElementById("process");
         if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#ai-lab");
+        else router.push("/#process");
+      },
+    },
+    {
+      id: "services",
+      title: "Services & Expertises",
+      subtitle: "Web, Mobile, Intelligence Artificielle, Cloud",
+      icon: Layers,
+      action: () => {
+        onClose();
+        const el = document.getElementById("services");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        else router.push("/#services");
       },
     },
     {
@@ -97,21 +108,9 @@ export function CommandPalette({
       },
     },
     {
-      id: "services",
-      title: "Services & Expertises",
-      subtitle: "Web, Mobile, Intelligence Artificielle, Produits",
-      icon: Layers,
-      action: () => {
-        onClose();
-        const el = document.getElementById("services");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#services");
-      },
-    },
-    {
       id: "start",
       title: "Démarrer un projet",
-      subtitle: "Configurateur interactif & devis sur-mesure",
+      subtitle: "Configurateur interactif & transmission directe",
       icon: Sparkles,
       action: () => {
         onClose();
@@ -123,7 +122,7 @@ export function CommandPalette({
     {
       id: "contact",
       title: "Contactez le studio",
-      subtitle: "Échange direct avec les fondateurs",
+      subtitle: "Échange direct avec les fondateurs (nexolithdev@gmail.com)",
       icon: Mail,
       action: () => {
         onClose();
@@ -230,7 +229,7 @@ export function CommandPalette({
                   setQuery(e.target.value);
                   setSelectedIndex(0);
                 }}
-                placeholder="SEARCH THE STUDIO... (projets, services, lab, équipe)"
+                placeholder="SEARCH THE STUDIO... (projets, services, équipe, contact)"
                 className="w-full bg-transparent text-nexolith-white placeholder:text-nexolith-muted text-sm sm:text-base outline-none font-sans"
                 autoFocus
               />

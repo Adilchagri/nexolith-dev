@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { NexolithLogo } from "@/components/brand/NexolithLogo";
-import { Mail, Github, Linkedin, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Mail, Instagram, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/data/translations";
 
@@ -13,10 +13,8 @@ export function ContactFooter() {
   const t = translations[language].footer;
   const navT = translations[language].nav;
 
-  const contactEmail = "contact@nexolith.dev";
-  const githubUrl = "https://github.com/nexolith-dev";
-  const linkedinUrl = "https://linkedin.com/company/nexolith-dev";
-  const whatsappUrl = "https://wa.me/212000000000";
+  const contactEmail = "nexolithdev@gmail.com";
+  const instagramUrl = "https://instagram.com/nexolith_dev";
 
   return (
     <footer id="contact" className="relative bg-[#03070C] text-nexolith-white pt-24 pb-12 border-t border-white/10 overflow-hidden">
@@ -83,52 +81,34 @@ export function ContactFooter() {
             </p>
           </div>
 
-          {/* Direct Channels */}
+          {/* Direct Channels (Only Email & Instagram) */}
           <div className="md:col-span-3 space-y-3">
             <div className="text-xs font-mono uppercase tracking-widest text-nexolith-white font-semibold">
               {t.channels}
             </div>
-            <ul className="space-y-2 text-xs font-mono text-nexolith-muted">
+            <ul className="space-y-3 text-xs font-mono text-nexolith-muted">
               <li>
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2"
+                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2.5 group"
                 >
-                  <Mail className="w-3.5 h-3.5 text-nexolith-blue" />
-                  <span>{contactEmail}</span>
+                  <div className="p-1.5 rounded-md bg-white/[0.04] border border-white/10 group-hover:border-nexolith-mint/40">
+                    <Mail className="w-3.5 h-3.5 text-nexolith-blue" />
+                  </div>
+                  <span className="text-white/90 group-hover:text-nexolith-mint transition-colors">{contactEmail}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={linkedinUrl}
+                  href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2"
+                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2.5 group"
                 >
-                  <Linkedin className="w-3.5 h-3.5 text-nexolith-blue" />
-                  <span>LinkedIn / nexolith-dev</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2"
-                >
-                  <Github className="w-3.5 h-3.5 text-nexolith-emerald" />
-                  <span>GitHub / nexolith-dev</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-nexolith-mint transition-colors flex items-center gap-2"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 text-nexolith-emerald" />
-                  <span>WhatsApp Business</span>
+                  <div className="p-1.5 rounded-md bg-white/[0.04] border border-white/10 group-hover:border-nexolith-mint/40">
+                    <Instagram className="w-3.5 h-3.5 text-nexolith-emerald" />
+                  </div>
+                  <span className="text-white/90 group-hover:text-nexolith-mint transition-colors">@nexolith_dev</span>
                 </a>
               </li>
             </ul>

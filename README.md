@@ -126,6 +126,14 @@ npm run start
 
 ---
 
+## ✦ Contact & Channels
+
+- **Email**: [nexolithdev@gmail.com](mailto:nexolithdev@gmail.com)
+- **Instagram**: [@nexolith_dev](https://instagram.com/nexolith_dev)
+
+---
+
 ## ✦ License
 
 Private & Proprietary © NEXOLITH DEV. All rights reserved.
+
