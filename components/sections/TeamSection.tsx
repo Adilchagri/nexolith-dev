@@ -64,17 +64,17 @@ export function TeamSection() {
                     {member.name}
                   </h3>
                   <div className="text-xs sm:text-sm font-mono text-[#1769FF] font-medium">
-                    {member.role}
+                    {language === "en" ? member.role_en || member.role : member.role}
                   </div>
                   <p className="text-xs sm:text-sm text-[#8C98A8] leading-relaxed pt-3 font-sans">
-                    {member.bio}
+                    {language === "en" ? member.bio_en || member.bio : member.bio}
                   </p>
                 </div>
 
                 {/* Specialties */}
                 <div className="mt-6 space-y-2">
                   <div className="text-[10px] font-mono uppercase tracking-widest text-[#8C98A8]">
-                    {language === "fr" ? "Domaines d'Expertise" : language === "en" ? "Areas of Expertise" : "مجالات التخصص"}
+                    {language === "fr" ? "Domaines d'Expertise" : "Areas of Expertise"}
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {member.disciplines.map((disc) => (
@@ -92,7 +92,7 @@ export function TeamSection() {
               {/* Personal Philosophy Quote */}
               <div className="mt-8 pt-6 border-t border-white/5">
                 <p className="font-serif italic text-xs text-[#5CFFD0]/90 leading-relaxed">
-                  &ldquo;{member.philosophy}&rdquo;
+                  &ldquo;{language === "en" ? member.philosophy_en || member.philosophy : member.philosophy}&rdquo;
                 </p>
               </div>
             </motion.div>

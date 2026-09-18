@@ -84,7 +84,7 @@ export function ProjectsShowcase() {
                       </h3>
                     </a>
                     <p className="text-xs text-[#8C98A8] mt-0.5">
-                      {project.subtitle}
+                      {language === "en" ? project.subtitle_en || project.subtitle : project.subtitle}
                     </p>
                   </div>
 

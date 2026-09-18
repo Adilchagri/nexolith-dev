@@ -28,16 +28,12 @@ export function ProjectConfigurator() {
   const projectTypes =
     language === "fr"
       ? ["SITE WEB", "E-COMMERCE", "APPLICATION MOBILE", "SOLUTION IA", "OUTIL INTERNE", "AUTRE"]
-      : language === "en"
-      ? ["WEBSITE", "E-COMMERCE", "MOBILE APP", "AI SOLUTION", "INTERNAL TOOL", "OTHER"]
-      : ["موقع ويب", "تجارة إلكترونية", "تطبيق جوال", "حلول ذكاء اصطناعي", "أداة داخلية", "أخرى"];
+      : ["WEBSITE", "E-COMMERCE", "MOBILE APP", "AI SOLUTION", "INTERNAL TOOL", "OTHER"];
 
   const serviceNeeds =
     language === "fr"
       ? ["DESIGN", "DÉVELOPPEMENT", "DESIGN + DÉVELOPPEMENT", "SOLUTION COMPLÈTE"]
-      : language === "en"
-      ? ["DESIGN", "DEVELOPMENT", "DESIGN + DEVELOPMENT", "END-TO-END PRODUCT"]
-      : ["تصميم واجهات", "تطوير برمجي", "تصميم + تطوير", "حل رقمي شامل"];
+      : ["DESIGN", "DEVELOPMENT", "DESIGN + DEVELOPMENT", "END-TO-END PRODUCT"];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,9 +43,7 @@ export function ProjectConfigurator() {
       setErrorMessage(
         language === "fr"
           ? "Veuillez renseigner votre nom et votre email."
-          : language === "en"
-          ? "Please provide your name and email."
-          : "يرجى كتابة الاسم والبريد الإلكتروني."
+          : "Please provide your name and email."
       );
       return;
     }
@@ -59,17 +53,34 @@ export function ProjectConfigurator() {
       setErrorMessage(
         language === "fr"
           ? "Veuillez renseigner un email valide."
-          : language === "en"
-          ? "Please provide a valid email address."
-          : "يرجى كتابة بريد إلكتروني صحيح."
+          : "Please provide a valid email address."
       );
       return;
     }
 
     setStatus("submitting");
 
-    const subjectText = `[NEXOLITH DEV] Projet: ${projectType} - ${name}`;
-    const bodyText = `Bonjour Adil & Amine,
+    const isEn = language === "en";
+    const subjectText = isEn
+      ? `[NEXOLITH DEV] Project: ${projectType} - ${name}`
+      : `[NEXOLITH DEV] Projet: ${projectType} - ${name}`;
+
+    const bodyText = isEn
+      ? `Hello Adil & Amine,
+
+New project inquiry configured from NEXOLITH DEV portfolio:
+
+• Client Name: ${name}
+• Contact Email: ${email}
+• Project Category: ${projectType}
+• Selected Services: ${serviceNeed}
+
+Project Description & Vision:
+${description || "(No description provided)"}
+
+---
+Sent from nexolith.dev portfolio`
+      : `Bonjour Adil & Amine,
 
 Nouveau projet configuré depuis le portfolio NEXOLITH DEV :
 
@@ -210,7 +221,7 @@ Envoyé depuis le portfolio nexolith.dev`;
                   onClick={handleReset}
                   className="text-xs font-mono text-[#8C98A8] hover:text-white transition-colors"
                 >
-                  ← {language === "fr" ? "Nouvelle configuration" : language === "en" ? "New inquiry" : "إرسال طلب جديد"}
+                  ← {language === "fr" ? "Nouvelle configuration" : "New inquiry"}
                 </button>
 
                 <a

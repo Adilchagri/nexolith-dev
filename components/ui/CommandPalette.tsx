@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { projects } from "@/data/projects";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -29,6 +30,8 @@ export function CommandPalette({
   onTriggerTerminal,
 }: CommandPaletteProps) {
   const router = useRouter();
+  const { language } = useLanguage();
+  const isEn = language === "en";
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -58,86 +61,161 @@ export function CommandPalette({
     }
   }, [isOpen]);
 
-  const navigationItems = [
-    {
-      id: "projects",
-      title: "Voir les projets",
-      subtitle: "Réalisations web, mobiles et études de cas",
-      icon: FolderGit2,
-      action: () => {
-        onClose();
-        const el = document.getElementById("projets");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#projets");
-      },
-    },
-    {
-      id: "process",
-      title: "Notre processus",
-      subtitle: "Méthodologie d'ingénierie et de développement",
-      icon: Cpu,
-      action: () => {
-        onClose();
-        const el = document.getElementById("process");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#process");
-      },
-    },
-    {
-      id: "services",
-      title: "Services & Expertises",
-      subtitle: "Web, Mobile, Intelligence Artificielle, Cloud",
-      icon: Layers,
-      action: () => {
-        onClose();
-        const el = document.getElementById("services");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#services");
-      },
-    },
-    {
-      id: "team",
-      title: "Notre équipe",
-      subtitle: "Adil & Amine — Ingénieurs fondateurs",
-      icon: Users,
-      action: () => {
-        onClose();
-        const el = document.getElementById("notre-equipe");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#notre-equipe");
-      },
-    },
-    {
-      id: "start",
-      title: "Démarrer un projet",
-      subtitle: "Configurateur interactif & transmission directe",
-      icon: Sparkles,
-      action: () => {
-        onClose();
-        const el = document.getElementById("configurateur");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#configurateur");
-      },
-    },
-    {
-      id: "contact",
-      title: "Contactez le studio",
-      subtitle: "Échange direct avec les fondateurs (nexolithdev@gmail.com)",
-      icon: Mail,
-      action: () => {
-        onClose();
-        const el = document.getElementById("contact");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else router.push("/#contact");
-      },
-    },
-  ];
+  const navigationItems = isEn
+    ? [
+        {
+          id: "projects",
+          title: "Explore Projects",
+          subtitle: "Web platforms, mobile apps & client case studies",
+          icon: FolderGit2,
+          action: () => {
+            onClose();
+            const el = document.getElementById("projets");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#projets");
+          },
+        },
+        {
+          id: "process",
+          title: "Our Process",
+          subtitle: "Engineering and software development lifecycle",
+          icon: Cpu,
+          action: () => {
+            onClose();
+            const el = document.getElementById("process");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#process");
+          },
+        },
+        {
+          id: "services",
+          title: "Services & Expertise",
+          subtitle: "Web, Mobile, Artificial Intelligence, Cloud",
+          icon: Layers,
+          action: () => {
+            onClose();
+            const el = document.getElementById("services");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#services");
+          },
+        },
+        {
+          id: "team",
+          title: "Our Team",
+          subtitle: "Adil & Amine — Founding Software Engineers",
+          icon: Users,
+          action: () => {
+            onClose();
+            const el = document.getElementById("notre-equipe");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#notre-equipe");
+          },
+        },
+        {
+          id: "start",
+          title: "Configure a Project",
+          subtitle: "Interactive studio configurator & quote transmission",
+          icon: Sparkles,
+          action: () => {
+            onClose();
+            const el = document.getElementById("configurateur");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#configurateur");
+          },
+        },
+        {
+          id: "contact",
+          title: "Contact the Studio",
+          subtitle: "Direct exchange with founders (nexolithdev@gmail.com)",
+          icon: Mail,
+          action: () => {
+            onClose();
+            const el = document.getElementById("contact");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#contact");
+          },
+        },
+      ]
+    : [
+        {
+          id: "projects",
+          title: "Voir les projets",
+          subtitle: "Réalisations web, mobiles et études de cas",
+          icon: FolderGit2,
+          action: () => {
+            onClose();
+            const el = document.getElementById("projets");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#projets");
+          },
+        },
+        {
+          id: "process",
+          title: "Notre processus",
+          subtitle: "Méthodologie d'ingénierie et de développement",
+          icon: Cpu,
+          action: () => {
+            onClose();
+            const el = document.getElementById("process");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#process");
+          },
+        },
+        {
+          id: "services",
+          title: "Services & Expertises",
+          subtitle: "Web, Mobile, Intelligence Artificielle, Cloud",
+          icon: Layers,
+          action: () => {
+            onClose();
+            const el = document.getElementById("services");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#services");
+          },
+        },
+        {
+          id: "team",
+          title: "Notre équipe",
+          subtitle: "Adil & Amine — Ingénieurs fondateurs",
+          icon: Users,
+          action: () => {
+            onClose();
+            const el = document.getElementById("notre-equipe");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#notre-equipe");
+          },
+        },
+        {
+          id: "start",
+          title: "Démarrer un projet",
+          subtitle: "Configurateur interactif & transmission directe",
+          icon: Sparkles,
+          action: () => {
+            onClose();
+            const el = document.getElementById("configurateur");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#configurateur");
+          },
+        },
+        {
+          id: "contact",
+          title: "Contactez le studio",
+          subtitle: "Échange direct avec les fondateurs (nexolithdev@gmail.com)",
+          icon: Mail,
+          action: () => {
+            onClose();
+            const el = document.getElementById("contact");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            else router.push("/#contact");
+          },
+        },
+      ];
 
   // Project search results
   const projectItems = projects.map((p) => ({
     id: `project-${p.id}`,
     title: p.title,
-    subtitle: `${p.category} • ${p.type} (${p.technologies.slice(0, 3).join(", ")})`,
+    subtitle: `${isEn ? p.subtitle_en || p.subtitle : p.subtitle} (${p.technologies.slice(0, 3).join(", ")})`,
     icon: FolderGit2,
     badge: p.type,
     action: () => {
@@ -229,7 +307,11 @@ export function CommandPalette({
                   setQuery(e.target.value);
                   setSelectedIndex(0);
                 }}
-                placeholder="SEARCH THE STUDIO... (projets, services, équipe, contact)"
+                placeholder={
+                  isEn
+                    ? "SEARCH THE STUDIO... (projects, services, team, contact)"
+                    : "RECHERCHER DANS LE STUDIO... (projets, services, équipe, contact)"
+                }
                 className="w-full bg-transparent text-nexolith-white placeholder:text-nexolith-muted text-sm sm:text-base outline-none font-sans"
                 autoFocus
               />
@@ -252,7 +334,7 @@ export function CommandPalette({
               {isEasterEggQuery && (
                 <div>
                   <div className="px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-nexolith-mint">
-                    Commande Système Détectée
+                    {isEn ? "System Command Detected" : "Commande Système Détectée"}
                   </div>
                   <button
                     onClick={() => {
@@ -268,7 +350,9 @@ export function CommandPalette({
                           sudo hire-nexolith
                         </div>
                         <div className="text-xs text-nexolith-muted">
-                          Initialiser le terminal de collaboration prioritaire
+                          {isEn
+                            ? "Initialize high-priority collaboration terminal"
+                            : "Initialiser le terminal de collaboration prioritaire"}
                         </div>
                       </div>
                     </div>
@@ -281,7 +365,7 @@ export function CommandPalette({
               {filteredNav.length > 0 && (
                 <div>
                   <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-nexolith-muted">
-                    Navigation Studio
+                    {isEn ? "Studio Navigation" : "Navigation Studio"}
                   </div>
                   <div className="space-y-1">
                     {filteredNav.map((item, idx) => {
@@ -329,7 +413,7 @@ export function CommandPalette({
               {filteredProjects.length > 0 && (
                 <div>
                   <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-nexolith-muted">
-                    Projets Réalisés ({filteredProjects.length})
+                    {isEn ? `Selected Projects (${filteredProjects.length})` : `Projets Réalisés (${filteredProjects.length})`}
                   </div>
                   <div className="space-y-1">
                     {filteredProjects.map((item, idx) => {
@@ -378,7 +462,9 @@ export function CommandPalette({
 
               {totalFiltered.length === 0 && (
                 <div className="py-12 text-center text-nexolith-muted text-sm">
-                  Aucun résultat trouvé pour &ldquo;{query}&rdquo;.
+                  {isEn
+                    ? `No results found for “${query}”.`
+                    : `Aucun résultat trouvé pour “${query}”.`}
                 </div>
               )}
             </div>
@@ -386,8 +472,8 @@ export function CommandPalette({
             {/* Footer shortcuts */}
             <div className="px-4 py-3 bg-nexolith-dark/80 border-t border-white/5 flex items-center justify-between text-[11px] text-nexolith-muted font-mono">
               <div className="flex items-center gap-3">
-                <span>↑↓ naviguer</span>
-                <span>↵ valider</span>
+                <span>{isEn ? "↑↓ navigate" : "↑↓ naviguer"}</span>
+                <span>{isEn ? "↵ open" : "↵ valider"}</span>
               </div>
               <div className="text-[10px] text-nexolith-muted/70">
                 NEXOLITH DEV COMMAND CENTER

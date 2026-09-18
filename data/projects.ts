@@ -2,6 +2,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
+  subtitle_en?: string;
   category: string;
   type: "Web" | "Mobile" | "Digital Product";
   description: string;
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     id: "atlas-ascenseurs",
     title: "Atlas Ascenseurs",
     subtitle: "Site web corporate",
+    subtitle_en: "Corporate Web Platform",
     category: "Site web corporate",
     type: "Web",
     description: "Conception et développement de la plateforme corporate pour Atlas Ascenseurs : ingénierie de l'élévation verticale, maintenance certifiée et solutions architecturales.",
@@ -63,6 +65,7 @@ export const projects: Project[] = [
     id: "zakat-app",
     title: "Zakat App",
     subtitle: "Application mobile",
+    subtitle_en: "Mobile Fintech Application",
     category: "Application mobile",
     type: "Mobile",
     description: "Application mobile intuitive et respectueuse de la vie privée pour le calcul précis de la Zakat selon les cours mondiaux de l'or et de l'argent en temps réel.",
@@ -95,6 +98,7 @@ export const projects: Project[] = [
     id: "fpk-pulse",
     title: "FPK Pulse",
     subtitle: "Plateforme campus & IA",
+    subtitle_en: "Campus & AI Platform",
     category: "Plateforme campus",
     type: "Web",
     description: "Plateforme numérique officielle du Parcours d'Excellence SIIA de la Faculté Polydisciplinaire de Khouribga : tableau de bord, mentorat, passeport numérique et assistant conversationnel IA.",
@@ -127,6 +131,7 @@ export const projects: Project[] = [
     id: "psicad",
     title: "PSICAD",
     subtitle: "Architecture 3D & agencement",
+    subtitle_en: "3D Architecture & Design",
     category: "Architecture 3D",
     type: "Web",
     description: "Plateforme web de référence pour PSICAD : solutions complètes en conception 3D, fabrication sur-mesure et aménagement intérieur et extérieur de qualité professionnelle.",
@@ -158,6 +163,7 @@ export const projects: Project[] = [
     id: "vitimac71",
     title: "Vitimac71",
     subtitle: "Prestations viticoles en Bourgogne",
+    subtitle_en: "Viticulture Services in Burgundy",
     category: "Site vitrine",
     type: "Web",
     description: "Site internet pour Vitimac71, prestataire viticole basé à Azé en Bourgogne : taille, palissage, travaux en vert et vendanges menés avec rigueur dans le respect de chaque parcelle.",

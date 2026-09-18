@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-export type Language = "fr" | "en" | "ar";
+export type Language = "fr" | "en";
 
 interface LanguageContextType {
   language: Language;
@@ -21,9 +21,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("nexolith_lang") as Language | null;
-    if (saved && (saved === "fr" || saved === "en" || saved === "ar")) {
+    if (saved && (saved === "fr" || saved === "en")) {
       setLanguageState(saved);
-      document.documentElement.dir = saved === "ar" ? "rtl" : "ltr";
+      document.documentElement.dir = "ltr";
       document.documentElement.lang = saved;
     } else {
       document.documentElement.dir = "ltr";
@@ -34,11 +34,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("nexolith_lang", lang);
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr";
     document.documentElement.lang = lang;
   };
 
-  const isRTL = language === "ar";
+  const isRTL = false;
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, isRTL }}>

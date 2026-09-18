@@ -54,10 +54,10 @@ export function ServicesSection() {
                     </span>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-[#5CFFD0] transition-colors">
-                        {service.title}
+                        {language === "en" ? service.title_en || service.title : service.title}
                       </h3>
                       <p className="text-xs font-mono text-[#5CFFD0] mt-1">
-                        {service.subtitle}
+                        {language === "en" ? service.subtitle_en || service.subtitle : service.subtitle}
                       </p>
                     </div>
                   </div>
@@ -65,11 +65,11 @@ export function ServicesSection() {
                   {/* Description & Deliverables */}
                   <div className="lg:col-span-5 space-y-4">
                     <p className="text-xs sm:text-sm text-[#8C98A8] leading-relaxed font-sans">
-                      {service.description}
+                      {language === "en" ? service.description_en || service.description : service.description}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                      {service.items.map((item) => (
+                      {(language === "en" && service.items_en ? service.items_en : service.items).map((item) => (
                         <div key={item} className="flex items-start gap-2 text-xs text-white/90">
                           <Check className="w-3.5 h-3.5 text-[#2ECC71] shrink-0 mt-0.5" />
                           <span>{item}</span>

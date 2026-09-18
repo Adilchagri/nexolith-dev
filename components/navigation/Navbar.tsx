@@ -74,18 +74,18 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Language Switcher Pill */}
             <div className="flex items-center p-1 rounded-full bg-white/[0.03] border border-white/10 text-[11px] font-mono">
-              {(["fr", "en", "ar"] as Language[]).map((lang) => (
+              {(["fr", "en"] as Language[]).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`px-2.5 py-1 rounded-full transition-all ${
+                  className={`px-3 py-1 rounded-full transition-all ${
                     language === lang
                       ? "bg-[#2ECC71] text-black font-bold shadow-md"
                       : "text-[#8C98A8] hover:text-white"
                   }`}
                   aria-label={`Switch language to ${lang.toUpperCase()}`}
                 >
-                  {lang === "fr" ? "FR" : lang === "en" ? "EN" : "عربي"}
+                  {lang.toUpperCase()}
                 </button>
               ))}
             </div>
@@ -96,7 +96,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
               className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#07191E] hover:bg-[#0A262D] text-[#5CFFD0] hover:text-white border border-[#2ECC71]/40 hover:border-[#2ECC71] text-xs font-sans tracking-wide transition-all shadow-[0_0_15px_rgba(46,204,113,0.2)] hover:shadow-[0_0_20px_rgba(46,204,113,0.4)]"
             >
               <span>{t.cta}</span>
-              <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? "rotate-180" : ""}`} />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
 
             {/* Dark Mode / Command Palette Icon */}
@@ -128,7 +128,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <span className="text-xs font-mono text-[#8C98A8] uppercase">Langue / Language</span>
               <div className="flex items-center gap-1.5 p-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono">
-                {(["fr", "en", "ar"] as Language[]).map((lang) => (
+                {(["fr", "en"] as Language[]).map((lang) => (
                   <button
                     key={lang}
                     onClick={() => {
@@ -141,7 +141,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
                         : "text-[#8C98A8]"
                     }`}
                   >
-                    {lang === "fr" ? "Français" : lang === "en" ? "English" : "العربية"}
+                    {lang === "fr" ? "Français" : "English"}
                   </button>
                 ))}
               </div>
