@@ -91,16 +91,35 @@ Envoyé depuis le portfolio nexolith.dev`;
     setMailtoUrl(generatedMailto);
     setFormattedSummary(bodyText);
 
-    // Trigger direct mail client transmission
+    // 1. Direct Background AJAX Delivery to nexolithdev@gmail.com
+    fetch("https://formsubmit.co/ajax/nexolithdev@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: subjectText,
+        projectType: projectType,
+        serviceNeed: serviceNeed,
+        message: description || "Projet configuré depuis le configurateur en ligne.",
+      }),
+    }).catch((err) => {
+      console.warn("Background dispatch notice:", err);
+    });
+
+    // 2. Open mail client as immediate local action
     try {
       window.location.href = generatedMailto;
     } catch {
-      // Fallback handled gracefully in UI
+      // Handled gracefully in UI
     }
 
     setTimeout(() => {
       setStatus("success");
-    }, 500);
+    }, 600);
   };
 
   const handleCopySummary = () => {

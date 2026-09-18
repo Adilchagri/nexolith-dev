@@ -29,8 +29,8 @@ The portfolio strictly highlights our 5 authentic client builds:
 
 1. **[Atlas Ascenseurs](https://atlas-ascenseur.vercel.app/)** — *Corporate Web Platform* (React, Vite, Tailwind CSS, Vercel)
 2. **[Zakat App](https://zakat-app-alpha.vercel.app/)** — *Islamic Fintech Mobile App* (React Native, TypeScript, Privacy-First Architecture)
-3. **[FPK Pulse](https://fpk-pulse.vercel.app/)** — *Campus & AI Platform* (Next.js, TypeScript, Generative AI Agent, Tailwind CSS)
-4. **[PSICAD](https://psicad.vercel.app/)** — *3D Architecture & Interior Design* (React, Three.js / WebGL, Interactive Estimator)
+3. **[FPK Pulse](https://fpk-final.vercel.app/)** — *Campus & AI Platform* (Next.js, TypeScript, Generative AI Agent, Tailwind CSS)
+4. **[PSICAD](https://psicad-react-app.vercel.app/)** — *3D Architecture & Interior Design* (React, Three.js / WebGL, Interactive Estimator)
 5. **[Vitimac71](https://vitimac71.vercel.app/)** — *Bespoke Viticultural Showcase* (React, Tailwind CSS, Seasonal Agricultural Modules)
 
 ---

@@ -142,7 +142,7 @@ export function CommandPalette({
     badge: p.type,
     action: () => {
       onClose();
-      router.push(`/projects/${p.id}`);
+      window.open(p.liveUrl, "_blank", "noopener,noreferrer");
     },
   }));
 

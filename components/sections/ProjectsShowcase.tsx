@@ -72,20 +72,28 @@ export function ProjectsShowcase() {
                 <div>
                   {/* Top Text Header */}
                   <div className="mb-4">
-                    <Link href={`/projects/${project.id}`}>
-                      <h3 className="text-lg font-display font-bold text-white group-hover:text-[#5CFFD0] transition-colors">
-                        {project.title}
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <h3 className="text-lg font-display font-bold text-white group-hover:text-[#5CFFD0] transition-colors flex items-center gap-1.5">
+                        <span>{project.title}</span>
+                        <ArrowRight className={`w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#5CFFD0] ${isRTL ? "rotate-180" : "-rotate-45"}`} />
                       </h3>
-                    </Link>
+                    </a>
                     <p className="text-xs text-[#8C98A8] mt-0.5">
                       {project.subtitle}
                     </p>
                   </div>
 
                   {/* Thumbnail Preview */}
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="block relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-black/40 border border-white/5 mb-4 group-hover:border-white/15 transition-all"
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-black/40 border border-white/5 mb-4 group-hover:border-white/15 transition-all cursor-pointer"
                   >
                     <Image
                       src={project.image}
@@ -95,7 +103,7 @@ export function ProjectsShowcase() {
                       sizes="(max-width: 768px) 100vw, 380px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
+                  </a>
 
                   {/* Technology Badges */}
                   <div className="flex flex-wrap gap-1.5 mb-5">
@@ -112,13 +120,15 @@ export function ProjectsShowcase() {
 
                 {/* Footer Link matching mockup: Voir le projet -> */}
                 <div className="pt-3 border-t border-white/5 flex items-center justify-between">
-                  <Link
-                    href={`/projects/${project.id}`}
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-sans text-white/90 hover:text-[#5CFFD0] transition-colors"
                   >
                     <span>{t.view_project}</span>
                     <ArrowRight className={`w-3.5 h-3.5 transition-transform ${isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"}`} />
-                  </Link>
+                  </a>
 
                   <a
                     href={project.liveUrl}
