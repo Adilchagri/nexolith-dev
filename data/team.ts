@@ -15,7 +15,7 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     id: "adil",
-    name: "ADIL",
+    name: "ADIL CHAGRI",
     role: "Development · AI · Product",
     role_en: "Development · AI · Product Architecture",
     disciplines: ["Frontend Architecture", "Artificial Intelligence", "Product Design", "Interactive Systems"],
@@ -24,11 +24,11 @@ export const teamMembers: TeamMember[] = [
     badge: "FOUNDER & ENGINEER",
     philosophy: "Le design sans ingénierie rigoureuse est une illusion. L'ingénierie sans souci du détail reste invisible.",
     philosophy_en: "Design without rigorous engineering is an illusion. Engineering without attention to detail remains invisible.",
-    avatar: "/brand/adil-avatar.svg"
+    avatar: "/brand/adil-chagri.png"
   },
   {
     id: "amine",
-    name: "AMINE",
+    name: "AMINE BAZAOUI",
     role: "Development · Engineering",
     role_en: "Development · Systems Engineering",
     disciplines: ["Full-Stack Engineering", "Systems Architecture", "Performance Optimization", "Data Pipelines"],
@@ -37,6 +37,6 @@ export const teamMembers: TeamMember[] = [
     badge: "FOUNDER & ENGINEER",
     philosophy: "Chaque ligne de code doit justifier sa présence. La simplicité maîtrisée est l'ultime sophistication.",
     philosophy_en: "Every line of code must earn its place. Mastered simplicity is the ultimate sophistication.",
-    avatar: "/brand/amine-avatar.svg"
+    avatar: "/brand/amine-bazaoui.png"
   }
 ];

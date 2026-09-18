@@ -44,13 +44,14 @@ export function TeamSection() {
             >
               <div>
                 <div className="flex items-start justify-between mb-6">
-                  {/* Geometric Avatar */}
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:scale-105 transition-transform">
+                  {/* Founder Portrait Photo */}
+                  <div className="relative w-24 h-24 rounded-2xl overflow-hidden border border-white/15 bg-black/40 shadow-xl group-hover:border-[#2ECC71]/40 group-hover:scale-105 transition-all">
                     <Image
                       src={member.avatar}
                       alt={member.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
+                      sizes="96px"
                     />
                   </div>
 

@@ -102,7 +102,7 @@ export function CommandPalette({
         {
           id: "team",
           title: "Our Team",
-          subtitle: "Adil & Amine — Founding Software Engineers",
+          subtitle: "Adil Chagri & Amine Bazaoui — Founding Software Engineers",
           icon: Users,
           action: () => {
             onClose();
@@ -176,7 +176,7 @@ export function CommandPalette({
         {
           id: "team",
           title: "Notre équipe",
-          subtitle: "Adil & Amine — Ingénieurs fondateurs",
+          subtitle: "Adil Chagri & Amine Bazaoui — Ingénieurs fondateurs",
           icon: Users,
           action: () => {
             onClose();

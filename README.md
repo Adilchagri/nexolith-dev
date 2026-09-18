@@ -2,7 +2,7 @@
 
 > **“Three engineers from nowhere, building something for everywhere.”**
 
-Official digital studio portfolio for **NEXOLITH DEV**, engineered by **Adil** & **Amine**.
+Official digital studio portfolio for **NEXOLITH DEV**, engineered by **Adil Chagri** & **Amine Bazaoui**.
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -16,7 +16,7 @@ Official digital studio portfolio for **NEXOLITH DEV**, engineered by **Adil** &
 NEXOLITH DEV is a creative software studio specializing in high-performance web platforms, mobile applications, and intelligent systems. This repository contains the complete source code for our studio portfolio, featuring:
 
 - **Cinematic Visual Identity**: Monolithic typography, deep slate tones (`#040910`), electric blue and emerald green accents (`#1769FF`, `#2ECC71`), and ambient landscape atmosphere.
-- **Tri-Lingual Support (FR · EN · AR)**: Seamless localization in French, English, and Arabic, with native Right-to-Left (`dir="rtl"`) typography and bidirectional layout adaptation.
+- **Bi-Lingual Support (FR · EN)**: Seamless, scalable localization in French and English across all services, projects, and components.
 - **Static Site Generation (SSG)**: Blazing fast load times with pre-rendered static routes and sub-second page transitions.
 - **Client Project Configurator**: Interactive step-by-step project scope builder and direct technical consultation flow.
 - **Zero Generic AI Tropes**: Engineered with bespoke design systems, clean contrast, and purposeful typography.
@@ -121,8 +121,8 @@ npm run start
 
 ## ✦ The Founders
 
-- **Adil** — *Co-Founder & Full-Stack Software Engineer* (Frontend Architecture · Product Design · AI Systems)
-- **Amine** — *Co-Founder & Mobile & Systems Architect* (Mobile Engineering · Systems Architecture · Data Infrastructure)
+- **Adil Chagri** — *Co-Founder & Full-Stack Software Engineer* (Frontend Architecture · Product Design · AI Systems)
+- **Amine Bazaoui** — *Co-Founder & Systems & Mobile Architect* (Mobile Engineering · Systems Architecture · Data Infrastructure)
 
 ---
 

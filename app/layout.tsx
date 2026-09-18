@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Next.js",
     "React Native",
   ],
-  authors: [{ name: "NEXOLITH DEV (Adil & Amine)" }],
+  authors: [{ name: "NEXOLITH DEV (Adil Chagri & Amine Bazaoui)" }],
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
